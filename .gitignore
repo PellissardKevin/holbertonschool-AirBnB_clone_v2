@@ -4,3 +4,4 @@
 models/engine/__pycache__
 /tests/test_models/test_engine/__pycache__
 *.json
+test_params_create
