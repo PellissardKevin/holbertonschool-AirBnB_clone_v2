@@ -16,7 +16,7 @@ class FileStorage:
         if cls is None:
             return FileStorage.__objects
         else:
-            for key, value in FileStorage.__objects.items():
+            for key, value in self.__objects.items():
                 if isinstance(value, cls):
                     filtered[key] = value
             return filtered

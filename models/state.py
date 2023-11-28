@@ -21,6 +21,7 @@ class State(BaseModel, Base):
         def cities(self):
             """Return the list of City instances with state_id
             equals to the current State.id"""
+            state_cities = []
             from models import storage
             all_cities = storage.all(City)
             state_cities = [city for city in all_cities.values()
