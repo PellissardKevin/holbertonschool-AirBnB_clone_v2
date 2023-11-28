@@ -68,6 +68,12 @@ class DBStorage:
 
     def reload(self):
         """Create the session"""
+        from models.state import State
+        from models.city import City
+        from models.user import User
+        from models.place import Place
+        from models.review import Review
+        from models.amenity import Amenity
         from models.base_model import Base
         Base.metadata.create_all(self.__engine)
         Session = scoped_session(sessionmaker(bind=self.__engine,
