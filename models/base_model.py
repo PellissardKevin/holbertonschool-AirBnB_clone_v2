@@ -1,22 +1,18 @@
 #!/usr/bin/python3
 """This module defines a base class for all models in our hbnb clone
-retirer model storage L8
-ajout table name L13
-indentation e delete L61
-ajout de models storage L64
 """
 import uuid
-# retirer model storage
 from datetime import datetime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import String, Column, Integer, DateTime
+
 
 Base = declarative_base()
 
 
 class BaseModel:
     """A base class for all hbnb models"""
-    __tablename__ = "base_model" # ajout de tablke name
+
     id = Column(String(60), primary_key=True, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow(), nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow(), nullable=False)
@@ -55,14 +51,15 @@ class BaseModel:
         dictionary = {}
         dictionary.update(self.__dict__)
         dictionary.update({"__class__":
-                        (str(type(self)).split(".")[-1]).split("'")[0]})
+                          (str(type(self)).split(".")[-1]).split("'")[0]})
         dictionary["created_at"] = self.created_at.isoformat()
         dictionary["updated_at"] = self.updated_at.isoformat()
         if "_sa_instance_state" in dictionary.keys():
             dictionary.pop("_sa_instance_state")
         return dictionary
 
-    def delete(self): # indentation de delete
+    def delete(self):
         """Delete the current instance"""
-        from models import storage # ajout de models storage
+        from models import storage
+
         storage.delete(self)

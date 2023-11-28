@@ -6,8 +6,7 @@ from sqlalchemy import Column, String, ForeignKey
 
 class City(BaseModel, Base):
     """ The city class, contains state ID and name """
-    __tablename__="Cities"
+    __tablename__ = "cities"
     name = Column(String(128), nullable=False)
-    # delete relationneship and add ondelete on ForeignKey
     state_id = Column(String(60), ForeignKey('states.id', ondelete="CASCADE"),
-                        nullable=False, )
+                      nullable=False, )

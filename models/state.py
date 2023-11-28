@@ -9,7 +9,7 @@ from os import getenv
 
 class State(BaseModel, Base):
     """ State class """
-    __tablename__="States"
+    __tablename__ = "states"
     name = Column(String(128), nullable=False)
 
     # Add condition if storage is db or not
@@ -19,8 +19,10 @@ class State(BaseModel, Base):
     else:
         @property
         def cities(self):
-            """Return the list of City instances with state_id equals to the current State.id"""
+            """Return the list of City instances with state_id
+            equals to the current State.id"""
             from models import storage
             all_cities = storage.all(City)
-            state_cities = [city for city in all_cities.values() if city.state_id == self.id]
+            state_cities = [city for city in all_cities.values()
+                            if city.state_id == self.id]
             return state_cities
