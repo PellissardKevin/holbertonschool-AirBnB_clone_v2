@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""This module defines a base class for all models in our hbnb clone 
+"""This module defines a base class for all models in our hbnb clone
 retirer model storage L8
 ajout table name L13
 indentation e delete L61
 ajout de models storage L64
 """
 import uuid
-# retirer model storage 
+# retirer model storage
 from datetime import datetime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import String, Column, Integer, DateTime
@@ -14,7 +14,7 @@ from sqlalchemy import String, Column, Integer, DateTime
 Base = declarative_base()
 
 
-class BaseModel(Base):
+class BaseModel:
     """A base class for all hbnb models"""
     __tablename__ = "base_model" # ajout de tablke name
     id = Column(String(60), primary_key=True, nullable=False)
