@@ -16,25 +16,12 @@ import pycodestyle
 import os
 
 
-class TestConsole(unittest.TestCase):
-    """this will test the console"""
-
+class TestCommand(unittest.TestCase):
+    """Tests for the console"""
     def setUp(self):
         """Function used to empty file.json"""
         FileStorage._FileStorage__objects = {}
         FileStorage().save()
-
-    @classmethod
-    def teardown(cls):
-        """at the end of the test this will tear it down"""
-        del cls.consol
-
-    def tearDown(self):
-        """Remove temporary file (file.json) created as a result"""
-        try:
-            os.remove("file.json")
-        except Exception:
-            pass
 
     @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') == 'db', "Not FileStorage")
     def test_create_fs(self):
