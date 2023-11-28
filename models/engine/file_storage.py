@@ -9,8 +9,10 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
+
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
+        filtered = {}
         if cls is None:
             return self.__objects
         else:
@@ -61,3 +63,4 @@ class FileStorage:
         if obj is not None:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
             self.__objects.pop(key, None)
+            self.save()
