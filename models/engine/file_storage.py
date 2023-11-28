@@ -14,9 +14,9 @@ class FileStorage:
         """Returns a dictionary of models currently in storage"""
         filtered = {}
         if cls is None:
-            return self.__objects
-        else:
             return FileStorage.__objects
+        else:
+            return self.__objects
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
@@ -60,6 +60,7 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
+        """Definition of delete method """
         if obj is not None:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
             self.__objects.pop(key, None)
