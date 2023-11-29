@@ -16,8 +16,9 @@ class FileStorage:
             return FileStorage.__objects
         else:
             for key, value in self.__objects.items():
-                if isinstance(value, cls):
-                    filtered[key] = value
+                tmp = {key: value}
+                if cls == classes[value.to_dict()['__class__']]:
+                    filtered.update(tmp)
             return filtered
 
     def new(self, obj):
