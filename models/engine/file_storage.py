@@ -62,8 +62,7 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
-        """Definition of delete method """
+        """Definition of delete method"""
         if obj is not None:
-            key = "{}.{}".format(obj.__class__.__name__, obj.id)
+            key = "{}.{}".format(obj.to_dict()['__class__'], obj.id)
             self.__objects.pop(key, None)
-            self.save()

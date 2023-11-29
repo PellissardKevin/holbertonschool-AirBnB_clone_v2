@@ -2,6 +2,7 @@
 """ State Module for HBNB project """
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
+from models import storage
 from sqlalchemy.orm import relationship
 from models.city import City
 from os import getenv
@@ -22,9 +23,7 @@ class State(BaseModel, Base):
             """Return the list of City instances with state_id
             equals to the current State.id"""
             state_cities = []
-            from models import storage
             all_cities = storage.all(City)
-            state_cities = []
             for city in all_cities.values():
                 if city.state_id == self.id:
                     state_cities.append(city)
