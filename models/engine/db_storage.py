@@ -46,7 +46,7 @@ class DBStorage:
             for classes in tables.values():
                 for row in self.__session.query(classes).all():
                     dict_entries['{}.{}'
-                                .format(classes.__name__, row.id)] = row
+                                 .format(classes.__name__, row.id)] = row
         else:
             for row in self.__session.query(cls):
                 dict_entries['{}.{}'.format(cls.__name__, row.id)] = row
