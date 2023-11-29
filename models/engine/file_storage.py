@@ -66,3 +66,7 @@ class FileStorage:
         if obj is not None:
             key = "{}.{}".format(obj.to_dict()['__class__'], obj.id)
             self.__objects.pop(key, None)
+
+    def close(self):
+        """update object"""
+        self.reload()
