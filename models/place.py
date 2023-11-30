@@ -6,7 +6,7 @@ from sqlalchemy.orm import relationship
 from models.amenity import Amenity
 from models.review import Review
 from os import getenv
-from models import storage
+
 
 
 place_amenity = Table(
@@ -38,13 +38,13 @@ class Place(BaseModel, Base):
     user_id = Column(String(60), ForeignKey("users.id", ondelete='CASCADE'),
                      nullable=False)
     name = Column(String(128), nullable=False)
-    description = Column(String(1024), nullable=False)
+    description = Column(String(1024), nullable=True)
     number_rooms = Column(Integer, nullable=False, default=0)
     number_bathrooms = Column(Integer, nullable=False, default=0)
     max_guest = Column(Integer, nullable=False, default=0)
     price_by_night = Column(Integer, nullable=False, default=0)
-    latitude = Column(Float, nullable=False)
-    longitude = Column(Float, nullable=False)
+    latitude = Column(Float, nullable=True)
+    longitude = Column(Float, nullable=True)
     amenity_ids = []
 
     if getenv('HBNB_TYPE_STORAGE') == 'db':
@@ -55,7 +55,8 @@ class Place(BaseModel, Base):
     else:
         @property
         def reviews(self):
-            """Return the list of reviews"""
+
+            from models import storage
             list_reviews = []
             for value in storage.all(Review).values():
                 if value.place_id == self.id:
@@ -64,7 +65,8 @@ class Place(BaseModel, Base):
 
     @property
     def amenities(self):
-        """Return the list of amenities"""
+
+        from models import storage
         list_amenities = []
         for value in storage.all(Amenity).values():
             if value.place_id == self.id:
@@ -73,7 +75,7 @@ class Place(BaseModel, Base):
 
     @amenities.setter
     def amenities(self, cls):
-        """Add the id of an amenity"""
+
         if not isinstance(cls, Amenity):
             return
         self.amenity_ids.append(cls.id)
