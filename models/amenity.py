@@ -9,4 +9,4 @@ class Amenity(BaseModel, Base):
     """Amenity class"""
 
     __tablename__ = 'amenities'
-    name = "" """Column(String(128), nullable=False)"""
+    name = Column(String(128), nullable=False)
