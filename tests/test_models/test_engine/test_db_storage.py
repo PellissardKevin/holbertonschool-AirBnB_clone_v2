@@ -10,18 +10,10 @@ import os
 import pycodestyle
 
 
-<<<<<<< HEAD
-class TestDBstorage(TestCase):
-    """Unit test for dbstorage"""
-
-    # k test
-
-    skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db')
-=======
 class TestDBstorage(unittest.TestCase):
     """Unit test for dbstorage"""
     @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db')
->>>>>>> 6cdd1eeeb0a399766fc2de833616a3a3beb6ed3d
+
     @classmethod
     def setUpClass(cls):
         """set up for test"""
@@ -75,26 +67,6 @@ class TestDBstorage(unittest.TestCase):
         self.assertIsNotNone(DBStorage.save.__doc__)
         self.assertIsNotNone(DBStorage.delete.__doc__)
         self.assertIsNotNone(DBStorage.reload.__doc__)
-
-    skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db')
-    def testPycodeStyle(self):
-<<<<<<< HEAD
-        """Test pycodestyle for console"""
-        style = pycodestyle.StyleGuide(quiet=True)
-        p = style.check_files(['models/engin/db_storage.py'])
-        self.assertEqual(p.total_errors, 0, "fix pep8")
-=======
-        style = pycodestyle.StyleGuide(quiet=True)
-        p = style.check_files(['models/engin/db_storage.py'])
-        self.assertEqual(p.total_errors, 0, "fix pep8")
-
-    def setUp(self):
-        self.storage = DBStorage()
-        self.storage.reload()
-
-    def tearDown(self):
-        self.storage.close()
->>>>>>> 6cdd1eeeb0a399766fc2de833616a3a3beb6ed3d
 
     # test 1re tranche
     skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db')
