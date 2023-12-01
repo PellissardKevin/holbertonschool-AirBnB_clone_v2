@@ -63,18 +63,18 @@ class Place(BaseModel, Base):
                     list_reviews.append(value)
             return list_reviews
 
-    @property
-    def amenities(self):
-        """Return the list of amenities"""
-        list_amenities = []
-        for value in storage.all(Amenity).values():
-            if value.place_id == self.id:
-                list_amenities.append(value)
-        return list_amenities
+        @property
+        def amenities(self):
+            """Return the list of amenities"""
+            list_amenities = []
+            for value in storage.all(Amenity).values():
+                if value.place_id == self.id:
+                    list_amenities.append(value)
+            return list_amenities
 
-    @amenities.setter
-    def amenities(self, cls):
-        """Add the id of an amenity"""
-        if not isinstance(cls, Amenity):
-            return
-        self.amenity_ids.append(cls.id)
+        @amenities.setter
+        def amenities(self, cls):
+            """Add the id of an amenity"""
+            if not isinstance(cls, Amenity):
+                return
+            self.amenity_ids.append(cls.id)
