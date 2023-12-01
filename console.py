@@ -231,7 +231,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             for k, v in storage.all().items():
                 print_list.append(str(v))
-        print(str(print_list).replace('"', ''))
+        print(print_list)
 
     def help_all(self):
         """Help information for the all command"""

@@ -1,23 +1,7 @@
 #!/usr/bin/python3
 """This module defines a class to manage file storage for hbnb clone"""
 import json
-from models.base_model import BaseModel
-from models.user import User
-from models.place import Place
-from models.state import State
-from models.city import City
-from models.amenity import Amenity
-from models.review import Review
 
-classes = {
-"BaseModel": BaseModel,
-"User": User,
-"Place": Place,
-"State": State,
-"City": City,
-"Amenity": Amenity,
-"Review": Review,
-}
 
 class FileStorage:
     """This class manages storage of hbnb models in JSON format"""
@@ -27,13 +11,30 @@ class FileStorage:
 
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
+        from models.base_model import BaseModel
+        from models.user import User
+        from models.place import Place
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.review import Review
+
+        classes = {
+            "BaseModel": BaseModel,
+            "User": User,
+            "Place": Place,
+            "State": State,
+            "City": City,
+            "Amenity": Amenity,
+            "Review": Review,
+        }
         filtered = {}
         if cls is None:
             return FileStorage.__objects
         else:
             for key, value in self.__objects.items():
                 tmp = {key: value}
-                if cls == classes[value.to_dict()['__class__']]:
+                if cls == classes[value.to_dict()["__class__"]]:
                     filtered.update(tmp)
             return filtered
 
@@ -52,6 +53,23 @@ class FileStorage:
 
     def reload(self):
         """Loads storage dictionary from file"""
+        from models.base_model import BaseModel
+        from models.user import User
+        from models.place import Place
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.review import Review
+
+        classes = {
+            "BaseModel": BaseModel,
+            "User": User,
+            "Place": Place,
+            "State": State,
+            "City": City,
+            "Amenity": Amenity,
+            "Review": Review,
+        }
         try:
             temp = {}
             with open(FileStorage.__file_path, "r") as f:
@@ -64,9 +82,10 @@ class FileStorage:
     def delete(self, obj=None):
         """Definition of delete method"""
         if obj is not None:
-            key = "{}.{}".format(obj.to_dict()['__class__'], obj.id)
+            key = "{}.{}".format(obj.to_dict()["__class__"], obj.id)
             if key in self.__objects:
                 self.__objects.pop(key, None)
+                self.save()
 
     def close(self):
         """update object"""
