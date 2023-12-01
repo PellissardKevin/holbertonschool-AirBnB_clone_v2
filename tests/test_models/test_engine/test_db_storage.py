@@ -7,7 +7,7 @@ from models.place import Place
 
 
 class TestDBstorage(unittest.TestCase):
-    """Unit test for dbstorage
+    """Unit test for dbstorage"""
     @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db')
     @classmethod
     def setUpClass(cls):
@@ -53,7 +53,7 @@ class TestDBstorage(unittest.TestCase):
     def testPycodeStyle(self):
        style = pycodestyle.StyleGuide(quiet=True)
         p = style.check_files(['models/engin/db_storage.py'])
-        self.assertEqual(p.total_errors, 0, "fix pep8")"""
+        self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def setUp(self):
         self.storage = DBStorage()

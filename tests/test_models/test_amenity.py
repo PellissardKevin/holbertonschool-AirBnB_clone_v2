@@ -69,4 +69,3 @@ class test_Amenity(test_basemodel):
     def test_to_dict_Amenity(self):
         """test if dictionary works"""
         self.assertEqual('to_dict' in dir(self.amenity), True)
-
