@@ -8,7 +8,7 @@ import json
 import os
 
 
-class test_basemodel(unittest.TestCase):  
+class test_basemodel(unittest.TestCase):
     """ """
 
     def __init__(self, *args, **kwargs):
@@ -26,7 +26,7 @@ class test_basemodel(unittest.TestCase):
     def tearDown(self):
         try:
             os.remove('file.json')
-        except:
+        except Exception:
             pass
 
     @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') == 'db', "FileStorage")
