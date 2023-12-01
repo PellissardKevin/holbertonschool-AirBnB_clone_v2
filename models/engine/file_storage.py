@@ -83,9 +83,9 @@ class FileStorage:
         """Definition of delete method"""
         if obj is not None:
             key = "{}.{}".format(obj.to_dict()["__class__"], obj.id)
-            if key in self.__objects:
+            if key in self.__objects.keys():
                 self.__objects.pop(key, None)
-            self.save()
+                self.save()
 
     def close(self):
         """update object"""
