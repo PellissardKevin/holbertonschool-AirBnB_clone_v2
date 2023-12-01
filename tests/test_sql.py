@@ -120,5 +120,6 @@ class TestMySQL(unittest.TestCase):
         self.assertEqual(res, 1)
         self.disconnection()
 
+
 if __name__ == '__main__':
     unittest.main()
