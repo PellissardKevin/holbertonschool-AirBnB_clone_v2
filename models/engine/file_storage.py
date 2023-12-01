@@ -85,7 +85,7 @@ class FileStorage:
             key = "{}.{}".format(obj.to_dict()["__class__"], obj.id)
             if key in self.__objects:
                 self.__objects.pop(key, None)
-                self.save()
+            self.save()
 
     def close(self):
         """update object"""
