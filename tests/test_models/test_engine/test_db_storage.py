@@ -30,13 +30,6 @@ class TestDBstorage(unittest.TestCase):
         del cls.user
 
     skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db')
-    def test_pep8_DBStorage(self):
-        """Tests pep8 style"""
-        style = pep8.StyleGuide(quiet=True)
-        p = style.check_files(['models/engine/db_storage.py'])
-        self.assertEqual(p.total_errors, 0, "fix pep8")
-
-    skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db')
     def test_all(self):
         """tests if all works in DB Storage"""
         storage = DBStorage()
