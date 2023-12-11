@@ -5,5 +5,5 @@ models/engine/__pycache__
 /tests/test_models/test_engine/__pycache__
 *.json
 test_params_create
-*.py
-!console.py
+main_delete.py
+main_place_amenities.py
