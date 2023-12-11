@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-<<<<<<< HEAD
-=======
 """Module for the different pages with Flask"""
 from flask import Flask, render_template
 from models import storage
@@ -24,4 +22,3 @@ def states():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
->>>>>>> adc5db0d26aaccb4cea9a4f05ab38b52617ed356

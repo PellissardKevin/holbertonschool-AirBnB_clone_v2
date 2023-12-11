@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-<<<<<<< HEAD
-=======
 """ Return html page """
 from flask import Flask
 
@@ -29,4 +27,3 @@ def c_route(text):
 if __name__ == '__main__':
     """ """
     app.run(host='0.0.0.0', port=5000)
->>>>>>> adc5db0d26aaccb4cea9a4f05ab38b52617ed356
