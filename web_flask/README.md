@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AirBnB clone - Web framework
 
 <a href="https://intranet.hbtn.io/concepts/865" title="Concepts" target="_blank">Concepts</a>
@@ -1237,3 +1238,19 @@ guillaume@ubuntu:~/AirBnB_v2$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_p
 </div>
 
 </details>
+=======
+Learning Objectives
+
+At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+General
+
+    What is a Web Framework
+    How to build a web framework with Flask
+    How to define routes in Flask
+    What is a route
+    How to handle variables in a route
+    What is a template
+    How to create a HTML response in Flask by using a template
+    How to create a dynamic template (loops, conditions…)
+    How to display in HTML data from a MySQL database
+>>>>>>> adc5db0d26aaccb4cea9a4f05ab38b52617ed356
