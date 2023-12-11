@@ -10,6 +10,7 @@ def hello_world():
     """ Return Hello HBNB"""
     return "Hello HBNB!"
 
+
 @app.route("/hbnb", strict_slashes=False)
 def hello_hbnb():
     """ Return HBNB"""
@@ -22,9 +23,10 @@ def c_route(text):
     text = text.replace("_", " ")
     return "C {}".format(text)
 
+
 @app.route("/python/<text>", strict_slashes=False)
 @app.route("/python/", strict_slashes=False)
-def python_route(text= 'is cool'):
+def python_route(text='is cool'):
     """ Return text in page python"""
     text = text.replace("_", " ")
     return "Python {}".format(text)
