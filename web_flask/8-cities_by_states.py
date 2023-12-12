@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-#!/usr/bin/python3
 """Module for the different pages with Flask"""
 from flask import Flask, render_template
 from models import storage
