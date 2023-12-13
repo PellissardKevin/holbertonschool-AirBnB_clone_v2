@@ -48,7 +48,8 @@ class DBStorage:
         if cls is None:
             for base_class in tables.values():
                 for row in self.__session.query(base_class).all():
-                    dict_entries["{}.{}".format(base_class.__name__, row.id)] = row
+                    dict_entries[
+                        "{}.{}".format(base_class.__name__, row.id)] = row
         else:
             for row in self.__session.query(cls):
                 dict_entries["{}.{}".format(cls.__name__, row.id)] = row
